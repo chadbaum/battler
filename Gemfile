@@ -34,8 +34,9 @@ end
 
 #MY STUFF
 gem 'puma' #server
-
 gem 'rails_12factor', group: :production #works wit heroku
+gem 'devise'
+gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
