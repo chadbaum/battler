@@ -1,0 +1,7 @@
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+  <li class="active">Classes</li>
+</ol>
+
+<% @classes.each do |job| %>
+  <%= link_to job.name, show_class_path(job) %><br>
+<% end %>

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519011403) do
+ActiveRecord::Schema.define(version: 20160521123826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "char_classes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "alias"
+    t.text     "description"
+    t.string   "stat_multiplier"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "slug"
+  end
+
+  add_index "char_classes", ["name"], name: "index_char_classes_on_name", using: :btree
+  add_index "char_classes", ["slug"], name: "index_char_classes_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
