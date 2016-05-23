@@ -1,7 +1,7 @@
 class ClassesController < ApplicationController
 
   def index
-    @classes = CharClass.all
+    @classes = CharClass.order(:id)
   end
 
   def show
