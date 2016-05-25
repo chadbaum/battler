@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+CharClass.create(name: 'Squire', alias: 'SQR')
+CharClass.create(name: 'Knight', alias: 'KNT')
+CharClass.create(name: 'Thief', alias: 'THF')
+CharClass.create(name: 'Monk', alias: 'MNK')
+CharClass.create(name: 'White Mage', alias: 'WHM')
+CharClass.create(name: 'Black Mage', alias: 'BLM')
