@@ -11,8 +11,8 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :char_level, default: 1
       t.integer :char_xp, default: 0
 
-      t.hstore :class_levels, default: {SQR: 1}
-      t.string :current_class, default: 'SQR'
+      t.hstore :job_levels, default: {SQR: 1}
+      t.string :current_job, default: 'SQR'
 
       t.integer :gc, default: 1000
 

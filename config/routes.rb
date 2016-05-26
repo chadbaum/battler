@@ -1,7 +1,7 @@
 Battler::Application.routes.draw do
   devise_for :users
-  get 'classes', to: 'classes#index'
-  get 'classes/:id', to: 'classes#show', as: 'show_class'
+  get 'jobs', to: 'jobs#index'
+  get 'jobs/:id', to: 'jobs#show', as: 'show_job'
   get 'characters', to: 'characters#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

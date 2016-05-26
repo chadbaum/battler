@@ -3,13 +3,13 @@
 
 <% @characters.each do |character| %>
   <div class="character-card">
-    <%= image_tag "/assets/icons/#{character.current_class}.png", class: 'small-class-icon' %>
+    <%= image_tag "/assets/icons/#{character.current_job}.png", class: 'small-job-icon' %>
     <div class="pull-right">
       <h2><%= character.name %></h2>
-      <%= "LVL #{character.class_levels[character.current_class]} #{character.get_class_name}" %>
+      <%= "LVL #{character.job_levels[character.current_job]} #{character.get_job_name}" %>
     </div>
-    <div class="class-sprite">
-      <%= image_tag "/assets/sprites/#{character.current_class}/#{character.get_class_name}1M-S.gif" %>
+    <div class="job-sprite">
+      <%= image_tag "/assets/sprites/#{character.current_job}/#{character.get_job_name}1M-S.gif" %>
     </div>
   </div>
 <% end %>

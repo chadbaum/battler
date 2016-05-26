@@ -5,12 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-CharClass.create(name: 'Squire', alias: 'SQR')
-CharClass.create(name: 'Knight', alias: 'KNT')
-CharClass.create(name: 'Thief', alias: 'THF')
-CharClass.create(name: 'Monk', alias: 'MNK')
-CharClass.create(name: 'White Mage', alias: 'WHM')
-CharClass.create(name: 'Black Mage', alias: 'BLM')
+Job.create(name: 'Squire', alias: 'SQR')
+Job.create(name: 'Knight', alias: 'KNT')
+Job.create(name: 'Thief', alias: 'THF')
+Job.create(name: 'Monk', alias: 'MNK')
+Job.create(name: 'White Mage', alias: 'WHM')
+Job.create(name: 'Black Mage', alias: 'BLM')
 
 User.create(email: 'chadbaum@gmail.com', password: 'monkeys')
 
