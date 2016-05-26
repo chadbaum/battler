@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521123826) do
+ActiveRecord::Schema.define(version: 20160525181347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "char_classes", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +29,22 @@ ActiveRecord::Schema.define(version: 20160521123826) do
 
   add_index "char_classes", ["name"], name: "index_char_classes_on_name", using: :btree
   add_index "char_classes", ["slug"], name: "index_char_classes_on_slug", using: :btree
+
+  create_table "characters", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "gender"
+    t.integer  "char_level",    default: 1
+    t.integer  "char_xp",       default: 0
+    t.hstore   "class_levels",  default: {"Squire"=>"1"}
+    t.string   "current_class", default: "Squire"
+    t.integer  "gc",            default: 1000
+    t.hstore   "equipment",     default: {"Feet"=>"Shoes", "Head"=>"Cap", "Chest"=>"Clothing", "Right"=>"Rusty Knife"}
+    t.datetime "created_at",                                                                                            null: false
+    t.datetime "updated_at",                                                                                            null: false
+  end
+
+  add_index "characters", ["name"], name: "index_characters_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

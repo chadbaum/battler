@@ -11,3 +11,7 @@ CharClass.create(name: 'Thief', alias: 'THF')
 CharClass.create(name: 'Monk', alias: 'MNK')
 CharClass.create(name: 'White Mage', alias: 'WHM')
 CharClass.create(name: 'Black Mage', alias: 'BLM')
+
+User.create(email: 'chadbaum@gmail.com', password: 'monkeys')
+
+User.first.build_character(name: 'Silvaire', gender: 'male').save
