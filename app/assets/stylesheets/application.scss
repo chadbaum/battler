@@ -12,11 +12,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.class-icon {
-  height: 100px;
-  width: 100px;
+$theme: rgb(99, 25, 34);
+
+@import "characters";
+@import "classes";
+@import "devise";
+@import "home";
+
+h1 {
+  color: $theme;
+  font-size: 60px;
+  text-align: center;
 }
-.navbar {
-  background-color: rgb(99, 25, 34);
-  border-radius: 0;
+body {
+  background: url('/assets/old_moon.png');
 }

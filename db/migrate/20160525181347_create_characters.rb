@@ -3,14 +3,16 @@ class CreateCharacters < ActiveRecord::Migration
     enable_extension "hstore"
     create_table :characters do |t|
 
+      t.integer :user_id
+
       t.string :name
       t.string :gender
 
       t.integer :char_level, default: 1
       t.integer :char_xp, default: 0
 
-      t.hstore :class_levels, default: {Squire: 1}
-      t.string :current_class, default: 'Squire'
+      t.hstore :class_levels, default: {SQR: 1}
+      t.string :current_class, default: 'SQR'
 
       t.integer :gc, default: 1000
 

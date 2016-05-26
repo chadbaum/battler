@@ -1,6 +1,15 @@
 <h1>Characters</h1>
+<br />
 
 <% @characters.each do |character| %>
-  <%= character.inspect %>
-  <%= User.find(character) %>
+  <div class="character-card">
+    <%= image_tag "/assets/icons/#{character.current_class}.png", class: 'small-class-icon' %>
+    <div class="pull-right">
+      <h2><%= character.name %></h2>
+      <%= "LVL #{character.class_levels[character.current_class]} #{character.get_class_name}" %>
+    </div>
+    <div class="class-sprite">
+      <%= image_tag "/assets/sprites/#{character.current_class}/#{character.get_class_name}1M-S.gif" %>
+    </div>
+  </div>
 <% end %>

@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20160525181347) do
     t.string   "gender"
     t.integer  "char_level",    default: 1
     t.integer  "char_xp",       default: 0
-    t.hstore   "class_levels",  default: {"Squire"=>"1"}
-    t.string   "current_class", default: "Squire"
+    t.hstore   "class_levels",  default: {"SQR"=>"1"}
+    t.string   "current_class", default: "SQR"
     t.integer  "gc",            default: 1000
     t.hstore   "equipment",     default: {"Feet"=>"Shoes", "Head"=>"Cap", "Chest"=>"Clothing", "Right"=>"Rusty Knife"}
     t.datetime "created_at",                                                                                            null: false
