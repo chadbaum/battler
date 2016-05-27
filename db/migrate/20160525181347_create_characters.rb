@@ -1,6 +1,5 @@
 class CreateCharacters < ActiveRecord::Migration
   def change
-    enable_extension "hstore"
     create_table :characters do |t|
 
       t.integer :user_id
@@ -8,15 +7,16 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :name
       t.string :gender
 
-      t.integer :char_level, default: 1
-      t.integer :char_xp, default: 0
+      t.integer :level, default: 1
+      t.integer :xp, default: 0
+      t.string :job, default: 'ADV'
 
-      t.hstore :job_levels, default: {SQR: 1}
-      t.string :current_job, default: 'SQR'
+      t.integer :gc, default: 500
 
-      t.integer :gc, default: 1000
-
-      t.hstore :equipment, default: {Head: 'Cap', Chest: 'Clothing', Feet: 'Shoes', Right: 'Rusty Knife'}
+      t.string :eq_head, default: 'Cap'
+      t.string :eq_chest, default: 'Shirt'
+      t.string :eq_feet, default: 'Shoes'
+      t.string :eq_right, default: 'Rusty Knife'
 
       t.timestamps null: false
 

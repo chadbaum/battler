@@ -11,24 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527022615) do
+ActiveRecord::Schema.define(version: 20160527195559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
+
+  create_table "character_items", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "character_jobs", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "job_id"
+    t.boolean  "active",       default: false
+    t.integer  "level",        default: 1
+    t.integer  "xp",           default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "characters", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "gender"
-    t.integer  "char_level",  default: 1
-    t.integer  "char_xp",     default: 0
-    t.hstore   "job_levels",  default: {"SQR"=>"1"}
-    t.string   "current_job", default: "SQR"
-    t.integer  "gc",          default: 1000
-    t.hstore   "equipment",   default: {"Feet"=>"Shoes", "Head"=>"Cap", "Chest"=>"Clothing", "Right"=>"Rusty Knife"}
-    t.datetime "created_at",                                                                                          null: false
-    t.datetime "updated_at",                                                                                          null: false
+    t.integer  "level",      default: 1
+    t.integer  "xp",         default: 0
+    t.string   "job",        default: "ADV"
+    t.integer  "gc",         default: 500
+    t.string   "eq_head",    default: "Cap"
+    t.string   "eq_chest",   default: "Shirt"
+    t.string   "eq_feet",    default: "Shoes"
+    t.string   "eq_right",   default: "Rusty Knife"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "characters", ["name"], name: "index_characters_on_name", using: :btree
@@ -39,8 +58,6 @@ ActiveRecord::Schema.define(version: 20160527022615) do
     t.string   "subtype"
     t.text     "description"
     t.integer  "power"
-    t.hstore   "stats"
-    t.hstore   "buffs"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

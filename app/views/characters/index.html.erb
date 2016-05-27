@@ -1,20 +1,14 @@
 <h1>Characters</h1>
 <br />
-
 <% @characters.each do |character| %>
   <div class="character-card">
-    <%= image_tag "/assets/icons/#{character.current_job}.png", class: 'small-job-icon' %>
+    <%= image_tag "/assets/sprites/#{character.job}/south.gif" %>
     <div class="pull-right">
       <h2><%= character.name %></h2>
-      <%= "Lvl #{character.job_levels[character.current_job]} #{character.get_job_name}" %>
+      <%= "Lvl #{character.level} / " %>
       <div id="character-stats">
-        <%= "Lvl #{character.char_level} Character" %> <br>
-        <%= character.gc %> gc
+        <% job = character.job %>
       </div>
-    </div>
-    <br />
-    <div class="job-sprite">
-      <%= image_tag "/assets/sprites/#{character.current_job}/#{character.get_job_name}1M-S.gif" %>
     </div>
   </div>
 <% end %>
