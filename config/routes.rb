@@ -3,6 +3,7 @@ Battler::Application.routes.draw do
   get 'jobs', to: 'jobs#index'
   get 'jobs/:id', to: 'jobs#show', as: 'show_job'
   get 'characters', to: 'characters#index'
+  get 'character', to: 'characters#profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526203203) do
+ActiveRecord::Schema.define(version: 20160527022615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,21 @@ ActiveRecord::Schema.define(version: 20160526203203) do
   end
 
   add_index "characters", ["name"], name: "index_characters_on_name", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "subtype"
+    t.text     "description"
+    t.integer  "power"
+    t.hstore   "stats"
+    t.hstore   "buffs"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "items", ["name"], name: "index_items_on_name", using: :btree
+  add_index "items", ["subtype"], name: "index_items_on_subtype", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name"
