@@ -9,7 +9,7 @@
     <div class="pull-right">
       <h2><%= character.name %></h2>
       <div id="character-class">
-        <%= "Level #{get_active_level(character)} #{get_active_job(character)}" %>
+        <%= "Level #{character.active_job_level} #{character.active_job_name}" %>
       </div>
       <div id="character-classes">
         <% character.jobs.each do |job| %>
