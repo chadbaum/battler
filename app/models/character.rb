@@ -18,13 +18,21 @@ class Character < ActiveRecord::Base
     active_character_job.level
   end
 
-  def active_job_level_up!
+  def active_job_level_up! #increment the job level by 1 and return the new level
     current_active_job = active_character_job
     next_level = active_job_level + 1
 
     current_active_job.level = next_level
     current_active_job.save
     next_level
+  end
+
+  def inventory
+    inventory = []
+    character_items.each do |character_item|
+      inventory << [character_item.item.name, character_item.quantity] 
+    end
+    inventory
   end
 
   private
@@ -37,5 +45,7 @@ class Character < ActiveRecord::Base
     active_job_id = active_character_job.job_id
     jobs.find active_job_id
   end
+
+
 
 end
