@@ -29,3 +29,5 @@ Job.create(name: 'Black Mage', alias: 'BLM')
 
 CharacterJob.create(character_id: 1, job_id: 1, active: true)
 CharacterJob.create(character_id: 2, job_id: 1, active: true)
+CharacterJob.create(character_id: 2, job_id: 3, level: 3)
+CharacterJob.create(character_id: 1, job_id: 5, level: 2)

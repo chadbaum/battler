@@ -40,6 +40,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'friendly_id'
 
+gem 'pry-rails', group: :development #debugger
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -10,8 +10,10 @@
   padding: 15px;
   margin: 10px;
   background-color: white;
+  position: relative;
 }
 .character-card h2 {
+  color: $theme;
   font-size: 45px;
   margin: 0;
   padding-bottom: 0;
@@ -23,6 +25,16 @@
   margin-left: 15px;
   margin-top: 5px;
 }
-#character-stats {
+#character-class {
   margin-left: 15px;
+}
+#character-classes {
+  font-size: 10px;
+  margin-top: 10px;
+}
+#character-level {
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+  font-size: 55px;
 }
