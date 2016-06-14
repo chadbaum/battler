@@ -14,6 +14,10 @@ class Character < ActiveRecord::Base
     active_job.name
   end
 
+  def active_job_alias
+    active_job.alias
+  end
+
   def active_job_level
     active_character_job.level
   end
@@ -27,10 +31,18 @@ class Character < ActiveRecord::Base
     next_level
   end
 
-  def inventory
+  def list_jobs
+    jobs = []
+    character_jobs.each do |character_job|
+      jobs << [character_job.job.name, character_job.level]
+    end
+    jobs
+  end
+
+  def list_inventory
     inventory = []
     character_items.each do |character_item|
-      inventory << [character_item.item.name, character_item.quantity] 
+      inventory << [character_item.item.name, character_item.quantity]
     end
     inventory
   end

@@ -1,0 +1,28 @@
+<h1><%= @character.name %></h1>
+<br />
+
+<div class='container'>
+  <div class='row'>
+    <div class='inventory col-xs-3 panel col-xs-offset-1'>
+      <table>
+        <% @character.list_inventory.each do |item_quantity| %>
+          <tr>
+            <td width=100><%= "#{item_quantity[0]}:" %></td>
+            <td><%= "#{item_quantity[1]}" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class='jobs col-xs-3 panel col-xs-offset-1'>
+      <table>
+        <% @character.list_jobs.each do |job_level| %>
+          <tr>
+            <td width=100><%= "#{job_level[0]}:" %></td>
+            <td><%= "#{job_level[1]}" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

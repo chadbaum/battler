@@ -9,4 +9,8 @@ class CharactersController < ApplicationController
     @character = Character.where(user_id: current_user.id).first
   end
 
+  def show
+    @character = Character.find(params[:id])
+  end
+
 end

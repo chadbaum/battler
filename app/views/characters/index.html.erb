@@ -7,13 +7,14 @@
       <%= character.level %>
     </div>
     <div class="pull-right">
-      <h2><%= character.name %></h2>
-      <div id="character-class">
+      <h2><%= link_to character.name, character_path(character) %></h2>
+      <div id="character-job">
         <%= "Level #{character.active_job_level} #{character.active_job_name}" %>
       </div>
-      <div id="character-classes">
-        <% character.jobs.each do |job| %>
-          <%= "#{job.name}: " %><br />
+      <div id="character-jobs">
+        <% character.list_jobs.each do |job_pair| %>
+          <%= "#{job_pair[0]}:  #{job_pair[1]}" %>
+          <br />
         <% end %>
       </div>
     </div>

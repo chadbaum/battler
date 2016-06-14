@@ -1,16 +1,18 @@
 Battler::Application.routes.draw do
   devise_for :users
-  get 'jobs', to: 'jobs#index'
-  get 'jobs/:id', to: 'jobs#show', as: 'show_job'
-  get 'characters', to: 'characters#index'
-  get 'character', to: 'characters#profile', as: 'profile'
-  get 'characters/:id', to: 'characters#show', as: 'character'
+
+  root 'home#index'
+
+  resources :jobs, only: [:index, :show]
+  resources :characters, only: [:index, :show]
+  resource :dashboard, only: [:show]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    root 'home#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

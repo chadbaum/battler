@@ -6,6 +6,6 @@
 </ol>
 
 <% @jobs.each do |job| %>
-  <%= image_tag "/assets/icons/#{job.alias}.png", class: 'job-icon' %> <%= link_to job.name, show_job_path(job) %>
+  <%= image_tag "/assets/icons/#{job.alias}.png", class: 'job-icon' %> <%= link_to job.name, job_path(job) %>
   <br /><br />
 <% end %>
