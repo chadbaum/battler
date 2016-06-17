@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527195559) do
+ActiveRecord::Schema.define(version: 20160617200755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160527195559) do
     t.string   "eq_right",   default: "Rusty Knife"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "party_id"
   end
 
   add_index "characters", ["name"], name: "index_characters_on_name", using: :btree
@@ -77,6 +78,13 @@ ActiveRecord::Schema.define(version: 20160527195559) do
 
   add_index "jobs", ["alias"], name: "index_jobs_on_alias", using: :btree
   add_index "jobs", ["slug"], name: "index_jobs_on_slug", using: :btree
+
+  create_table "parties", force: :cascade do |t|
+    t.boolean  "active"
+    t.time     "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "skills", force: :cascade do |t|
     t.integer  "job_id"

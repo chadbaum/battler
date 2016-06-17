@@ -1,0 +1,14 @@
+// Place all the styles related to the battles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.character-card {
+  border: 5px;
+  border-color: $theme;
+  border-style: solid;
+  width: 300px;
+  height: 220px;
+  padding: 15px;
+  margin: 10px;
+  background-color: white;
+  position: relative;
+}

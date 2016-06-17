@@ -1,5 +1,6 @@
 class Character < ActiveRecord::Base
   belongs_to :user
+  belongs_to :party
 
   has_many :character_items
   has_many :items, through: :character_items
@@ -7,7 +8,7 @@ class Character < ActiveRecord::Base
   has_many :character_jobs
   has_many :jobs, through: :character_jobs
 
-  validates :name, presence: true, length: { in: 4..8 }
+  validates :name, presence: true, length: { in: 4..8 }, uniqueness: true
   validates :gender, presence: true
 
   def active_job_name
@@ -29,6 +30,17 @@ class Character < ActiveRecord::Base
     current_active_job.level = next_level
     current_active_job.save
     next_level
+  end
+
+  def change_active_job(job_alias)
+      old_active_job = active_character_job
+      old_active_job.active = false
+      old_active_job.save
+
+      job_id = jobs.find_by alias: job_alias
+      new_active_job = character_jobs.find_by job_id: job_id
+      new_active_job.active = true
+      new_active_job.save
   end
 
   def list_jobs
