@@ -63,6 +63,14 @@ class Character < ActiveRecord::Base
     inventory
   end
 
+  def list_inventory_types
+    item_types = []
+    items.each do |item|
+      item_types << item.type
+    end
+    item_types.uniq
+  end
+
   private
 
   def active_character_job

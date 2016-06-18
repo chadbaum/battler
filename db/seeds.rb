@@ -11,13 +11,17 @@ User.first.build_character(name: 'Silvaire', gender: 'male').save
 User.last.build_character(name: 'Jaizeal', gender: 'male').save
 
 
-Item.create(name: 'Potion').save
+Item.create(name: 'Potion', type: 'Consumable').save
 CharacterItem.create(character_id: 1, item_id: 1, quantity: 9)
 CharacterItem.create(character_id: 2, item_id: 1, quantity: 9)
 
-Item.create(name: 'Eye Drops').save
+Item.create(name: 'Eye Drops', type: 'Consumable').save
 CharacterItem.create(character_id: 1, item_id: 2, quantity: 4)
 CharacterItem.create(character_id: 2, item_id: 2, quantity: 4)
+
+Item.create(name: 'Antidote', type: 'Consumable').save
+CharacterItem.create(character_id: 1, item_id: 3, quantity: 10)
+CharacterItem.create(character_id: 2, item_id: 3, quantity: 10)
 
 Job.create(name: 'Adventurer', alias: 'ADV')
 Job.create(name: 'Squire', alias: 'SQR')

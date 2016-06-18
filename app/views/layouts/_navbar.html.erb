@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
-            <%= link_to image_tag("/assets/portraits/#{current_user.character.active_job_alias.upcase}.gif", class: 'character-icon'), dashboard_path %>
+            <%= link_to image_tag(current_user.character.active_job_portrait, class: 'character-icon'), dashboard_path %>
           </li>
           <li id='nav-character-panel'>
             <%= "#{current_user.character.name} - #{current_user.character.active_job_level} #{current_user.character.active_job_name}" %>
