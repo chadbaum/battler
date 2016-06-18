@@ -19,6 +19,7 @@ $theme: rgb(99, 25, 34);
 @import "devise";
 @import "home";
 @import "battles";
+@import "dashboards";
 
 h1 {
   color: $theme;
@@ -27,4 +28,8 @@ h1 {
 }
 body {
   background: url('/assets/old_moon.png');
+}
+#main{
+  margin-left: 15px;
+  margin-right: 15px;
 }

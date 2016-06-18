@@ -23,6 +23,10 @@ class Character < ActiveRecord::Base
     active_character_job.level
   end
 
+  def active_job_portrait
+    "/assets/portraits/#{active_job_alias.upcase}.gif"
+  end
+
   def active_job_level_up! #increment the job level by 1 and return the new level
     current_active_job = active_character_job
     next_level = active_job_level + 1

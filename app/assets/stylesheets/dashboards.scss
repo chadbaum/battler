@@ -1,3 +1,22 @@
 // Place all the styles related to the dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.active-job-panel {
+  border: 2px solid $theme;
+  margin: 15px;
+  height: 500px;
+}
+.jobs-panel {
+  border: 2px solid $theme;
+  margin: 15px;
+  height: 250px;
+}
+.inventory-panel {
+  border: 2px solid $theme;
+  margin: 15px;
+  height: 500px;
+}
+.active-job-panel-portrait {
+  width: auto;
+  height: 170px;
+}
