@@ -63,6 +63,14 @@ class Character < ActiveRecord::Base
     inventory
   end
 
+  def list_consumables
+    consumables = []
+    character_items.each do |character_item|
+      consumables << [character_item.item.name, character_item.quantity] if character_item.item.type == 'Consumable'
+    end
+    consumables
+  end
+
   def list_inventory_types
     item_types = []
     items.each do |item|
