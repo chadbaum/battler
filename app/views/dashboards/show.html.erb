@@ -7,14 +7,21 @@
 
     <div class='active-job-panel col-xs-12 col-md-6 col-md-offset-1'>
       <h3 class='panel-header text-center'><%= @character.active_job_name %></h3>
-      <%= image_tag @character.active_job_portrait, class: 'active-job-panel-portrait' %>
+      <div class='active-job-panel-info'>
+        <%= image_tag @character.active_job_portrait, class: 'active-job-panel-portrait' %>
+        <%= "Level #{@character.active_job_level}" %>
+      </div>
     </div>
 
     <div class='jobs-panel col-xs-12 col-md-4'>
       <h3 class='panel-header text-center'>Jobs</h3>
         <% @character.list_jobs.each do |job_level| %>
           <div class='job-name-column text-right col-md-4'>
-            <%= "#{job_level[0]}:" %>
+            <% if job_level[0] == @character.active_job_name %>
+              <span id='active-job'><%= "#{job_level[0]}" %></span>:
+            <% else %>
+              <%= "#{job_level[0]}:" %>
+            <% end %>
           </div>
           <div class='job-level-column col-md-1'>
             <%= "#{job_level[1]}" %>

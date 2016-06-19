@@ -8,7 +8,7 @@
 User.create(email: 'chadbaum@gmail.com', password: 'monkeys')
 User.create(email: 'moomoo@moo.com', password: 'monkeys')
 User.first.build_character(name: 'Silvaire', gender: 'male').save
-User.last.build_character(name: 'Jaizeal', gender: 'male').save
+User.last.build_character(name: 'Persata', gender: 'male').save
 
 
 Item.create(name: 'Potion', type: 'Consumable').save

@@ -17,9 +17,14 @@
   padding: 0;
   background-color: white;
 }
+.active-job-panel-info {
+  padding: 15px;
+}
 .active-job-panel-portrait {
   width: auto;
   height: 170px;
+  vertical-align: top;
+  border: 3px solid $theme;
 }
 .jobs-panel {
   border: 2px solid $theme;
@@ -27,6 +32,18 @@
   height: 250px;
   padding: 0;
   background-color: white;
+}
+#active-job {
+  font-weight: 900;
+  color: $theme;
+}
+.job-name-column {
+  padding-right: 10px;
+  padding-top: 15px;
+}
+.job-level-column {
+  padding-left: 0;
+  padding-top: 15px;
 }
 .inventory-panel {
   border: 2px solid $theme;
@@ -43,8 +60,11 @@
   padding: 15px;
 }
 .item-quantity-column {
-  padding: 0;
+  padding-left: 0;
 }
 .item-name-column {
-  padding-right : 10px;
+  padding-right: 10px;
+}
+#consumables {
+  padding-top: 15px;
 }
