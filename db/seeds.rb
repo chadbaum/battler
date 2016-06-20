@@ -23,6 +23,10 @@ Item.create(name: 'Antidote', type: 'Consumable').save
 CharacterItem.create(character_id: 1, item_id: 3, quantity: 10)
 CharacterItem.create(character_id: 2, item_id: 3, quantity: 10)
 
+Item.create(name: 'Rusty Knife', type: 'Weapon').save
+CharacterItem.create(character_id: 1, item_id: 4, quantity: 1, equipped: true, slot: 'right')
+CharacterItem.create(character_id: 2, item_id: 4, quantity: 1, equipped: true, slot: 'right')
+
 Job.create(name: 'Adventurer', alias: 'ADV')
 Job.create(name: 'Squire', alias: 'SQR')
 Job.create(name: 'Knight', alias: 'KNT')

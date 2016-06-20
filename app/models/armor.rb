@@ -1,4 +1,4 @@
-class Weapon < Item
+class Armor < Item
 
 
 end

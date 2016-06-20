@@ -6,8 +6,6 @@ class CreateItems < ActiveRecord::Migration
       t.string :subtype
       t.text :description
       t.integer :power
-      t.hstore :stats
-      t.hstore :buffs
 
       t.timestamps null: false
     end

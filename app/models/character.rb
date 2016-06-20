@@ -63,20 +63,48 @@ class Character < ActiveRecord::Base
     inventory
   end
 
+  def list_inventory_types
+    item_types = []
+      items.each do |item|
+        item_types << item.type
+      end
+    item_types.uniq
+    end
+
   def list_consumables
     consumables = []
-    character_items.each do |character_item|
-      consumables << [character_item.item.name, character_item.quantity] if character_item.item.type == 'Consumable'
+    character_items.each do |consumable|
+      consumables << [consumable.item.name, consumable.quantity] if consumable.item.type == 'Consumable'
     end
     consumables
   end
 
-  def list_inventory_types
-    item_types = []
-    items.each do |item|
-      item_types << item.type
+  def chest
+    character_items.find_by(equipped: true, slot: 'chest')
+  end
+
+  def head
+    character_items.find_by(equipped: true, slot: 'head')
+  end
+
+  def feet
+    character_items.find_by(equipped: true, slot: 'feet')
+  end
+
+  def right
+    character_items.find_by(equipped: true, slot: 'right')
+  end
+
+  def left
+    character_items.find_by(equipped: true, slot: 'left')
+  end
+
+  def accessories
+    accessories = []
+    character_items.where(equipped: true, slot: 'accessory').each do |accessory|
+      accessories << accessory
     end
-    item_types.uniq
+    accessories
   end
 
   private
