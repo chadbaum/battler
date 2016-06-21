@@ -5,7 +5,7 @@ h1
     .dashboard-panel.active-job.col-xs-12.col-md-6.col-md-offset-1
       h3.header
         = @character.active_job_name
-      .info.col-xs-3
+      .info.col-xs-4
         = image_tag @character.active_job_portrait, class: 'portrait'
         = "Level #{@character.active_job_level}"
       .equipment.col-xs-8
@@ -18,13 +18,13 @@ h1
           li = image_tag "/assets/slots/right.png", class: 'slot'
           li = image_tag "/assets/slots/left.png", class: 'slot'
         ul.items
-          li = head_slot
-          li = chest_slot
-          li = feet_slot
-          li = accessory1_slot
-          li = accessory2_slot
-          li = right_slot
-          li = left_slot
+          li = equipped("head")
+          li = equipped("chest")
+          li = equipped("feet")
+          li = equipped("accessory1")
+          li = equipped("accessory2")
+          li = equipped("right")
+          li = equipped("left")
     .dashboard-panel.jobs.col-xs-12.col-md-4
       h3.header Jobs
       - @character.list_jobs.each do |job_level|
@@ -41,8 +41,9 @@ h1
     .dashboard-panel.inventory.col-xs-12.col-md-6
       h3.header Inventory
       .type.col-md-4
-        - @character.list_inventory_types.each do |type|
-          = link_to type, '#', class: 'btn btn-default'
+        ul
+          - @character.list_inventory_types.each do |type|
+            li = image_tag "/assets/icons/inventory/#{type.downcase}.png"
       .info.col-md-8
         #consumables
           - @character.list_consumables.each do |consumable|
