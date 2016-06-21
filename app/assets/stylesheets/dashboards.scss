@@ -1,70 +1,86 @@
 // Place all the styles related to the dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.panel-header {
-  border-bottom: 2px solid $theme;
-  padding: 8px;
-  margin-top: 0;
-  margin-bottom: 0;
-  background-color: $theme;
-  color: white;
-  height: 45px;
-}
-.active-job-panel {
+.dashboard-panel {
   border: 2px solid $theme;
   margin: 15px;
-  height: 500px;
   padding: 0;
   background-color: white;
+  .header {
+    border-bottom: 2px solid $theme;
+    padding: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: $theme;
+    color: white;
+    height: 45px;
+    text-align: center;
+  }
 }
-.active-job-panel-info {
-  padding: 15px;
+
+.active-job {
+  height: 500px;
+  .portrait {
+    width: auto;
+    height: 170px;
+    vertical-align: top;
+    border: 3px solid $theme;
+  }
+  .info {
+    padding: 15px;
+  }
+  .equipment {
+    padding: 15px;
+    .slots {
+      list-style: none;
+      .slot {
+        width: 45px;
+      }
+    }
+    .items {
+      list-style:none;
+      font-size:25px;
+    }
+  }
 }
-.active-job-panel-portrait {
-  width: auto;
-  height: 170px;
-  vertical-align: top;
-  border: 3px solid $theme;
-}
-.jobs-panel {
-  border: 2px solid $theme;
-  margin: 15px;
+
+.jobs {
   height: 250px;
-  padding: 0;
-  background-color: white;
+  #active {
+    font-weight: 900;
+    color: $theme;
+  }
+  .name {
+    padding-right: 10px;
+    padding-top: 15px;
+  }
+  .level {
+    padding-left: 0;
+    padding-top: 15px;
+  }
 }
-#active-job {
-  font-weight: 900;
-  color: $theme;
-}
-.job-name-column {
-  padding-right: 10px;
-  padding-top: 15px;
-}
-.job-level-column {
-  padding-left: 0;
-  padding-top: 15px;
-}
-.inventory-panel {
+
+.inventory {
   border: 2px solid $theme;
   background-color: white;
   margin: 15px;
   height: 500px;
   padding: 0;
   background-color: white;
-}
-.item-type-column {
-  border-right: 1px solid $theme;
-  color: $theme;
-  height: 453px;
-  padding: 15px;
-}
-.item-quantity-column {
-  padding-left: 0;
-}
-.item-name-column {
-  padding-right: 10px;
-}
-#consumables {
-  padding-top: 15px;
+  .type {
+    border-right: 1px solid $theme;
+    color: $theme;
+    height: 453px;
+    padding: 15px;
+    text-align: center;
+  }
+  .quantity {
+    padding-left: 0;
+  }
+  .name {
+    padding-right: 10px;
+  }
+  #consumables {
+    padding-top: 15px;
+  }
 }
