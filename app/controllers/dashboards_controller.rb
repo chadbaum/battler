@@ -1,8 +1,9 @@
 class DashboardsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
-    @character = Character.where(user_id: current_user.id).take
-    @character_jobs = @character.character_jobs
+    @character = current_user.character
+    @character_jobs = current_user.character.character_jobs
   end
 
 end
