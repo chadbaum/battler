@@ -39,6 +39,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'friendly_id'
+gem 'slim-rails'
 
 gem 'pry-rails', group: :development #debugger
 
