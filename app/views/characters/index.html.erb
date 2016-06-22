@@ -2,10 +2,7 @@
 <br />
 <% @characters.each do |character| %>
   <div class="character-card">
-    <%= image_tag "/assets/sprites/#{character.job}/south.gif" %>
-    <div id="character-level">
-      <%= character.level %>
-    </div>
+    <%= image_tag "/assets/sprites/#{character.active_job_alias}/south.gif" %>
     <div class="pull-right">
       <h2><%= link_to character.name, character_path(character) %></h2>
       <div id="character-job">

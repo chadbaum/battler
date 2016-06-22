@@ -40,17 +40,9 @@ ActiveRecord::Schema.define(version: 20160620183257) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "gender"
-    t.integer  "level",      default: 1
-    t.integer  "xp",         default: 0
-    t.string   "job",        default: "ADV"
     t.integer  "gc",         default: 500
-    t.string   "eq_head",    default: "Cap"
-    t.string   "eq_chest",   default: "Shirt"
-    t.string   "eq_feet",    default: "Shoes"
-    t.string   "eq_right",   default: "Rusty Knife"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "party_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "characters", ["name"], name: "index_characters_on_name", using: :btree

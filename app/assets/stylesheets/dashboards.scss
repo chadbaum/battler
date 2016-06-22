@@ -26,6 +26,10 @@
   }
   .info {
     padding: 15px;
+    ul {
+      padding-left: 0;
+      li {list-style: none;}
+    }
   }
   .equipment {
     padding: 15px;

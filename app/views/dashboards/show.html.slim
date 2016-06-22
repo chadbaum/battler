@@ -8,6 +8,11 @@ h1
       .info.col-xs-4
         = image_tag @character.active_job_portrait, class: 'portrait'
         = "Level #{@character.active_job_level}"
+        ul.stats
+          li Strength
+          li Agility
+          li Intelligence
+          li Stamina
       .equipment.col-xs-8
         ul.slots.text-right.col-xs-3
           li = image_tag "/assets/slots/head.png", class: 'slot'
