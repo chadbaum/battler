@@ -3,7 +3,6 @@ class DashboardsController < ApplicationController
 
   def show
     @character = current_user.character
-    @character_jobs = current_user.character.character_jobs
   end
 
 end

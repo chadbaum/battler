@@ -4,10 +4,10 @@ h1
   .row
     .dashboard-panel.active-job.col-xs-12.col-md-6.col-md-offset-1
       h3.header
-        = @character.active_job_name
+        = @character.active_character_job.job.name
       .info.col-xs-4
         = image_tag @character.active_job_portrait, class: 'portrait'
-        = "Level #{@character.active_job_level}"
+        = "Level #{@character.active_character_job.level}"
         ul.stats
           li Strength
           li Agility
@@ -34,7 +34,7 @@ h1
       h3.header Jobs
       - @character.list_jobs.each do |job_level|
         .name.text-right.col-md-4
-          - if job_level[0] == @character.active_job_name
+          - if job_level[0] == @character.active_character_job.job.name
             span#active-job
               = "#{job_level[0]}"
             | : 

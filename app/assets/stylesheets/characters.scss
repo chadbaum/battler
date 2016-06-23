@@ -11,7 +11,7 @@
   margin: 10px;
   background-color: white;
   position: relative;
-  box-shadow: 10px 5px 15px 
+  box-shadow: 10px 5px 15px
 }
 .character-card h2 {
   color: $theme;
@@ -38,4 +38,11 @@
   bottom: -10px;
   left: 5px;
   font-size: 55px;
+}
+.form-control {
+  width: auto;
+}
+.character-creation-form {
+  border: 4px solid $theme;
+  padding: 15px;
 }

@@ -11,20 +11,12 @@ class Character < ActiveRecord::Base
   validates :name, presence: true, length: { in: 4..8 }, uniqueness: true
   validates :gender, presence: true
 
-  def active_job_name
-    active_job.name
-  end
-
-  def active_job_alias
-    active_job.alias
-  end
-
-  def active_job_level
-    active_character_job.level
+  def active_character_job
+    character_jobs.find_by active: true
   end
 
   def active_job_portrait
-    "/assets/portraits/#{active_job_alias.upcase}.gif"
+    "/assets/portraits/#{active_character_job.job.alias.upcase}.gif"
   end
 
   def active_job_level_up! #increment the job level by 1 and return the new level
@@ -106,18 +98,5 @@ class Character < ActiveRecord::Base
     end
     accessories
   end
-
-  private
-
-  def active_character_job
-    character_jobs.find_by active: true
-  end
-
-  def active_job
-    active_job_id = active_character_job.job_id
-    jobs.find active_job_id
-  end
-
-
 
 end

@@ -4,7 +4,8 @@ Battler::Application.routes.draw do
   root 'home#index'
 
   resources :jobs, only: [:index, :show]
-  resources :characters, only: [:index, :show]
+  resources :characters, only: [:index, :show, :create, :new]
+
   resource :dashboard, only: [:show]
 
 
