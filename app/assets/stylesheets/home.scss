@@ -19,3 +19,10 @@
   height: 50px;
   margin-right: 10px;
 }
+.main-menu {
+  border: 2px solid $theme;
+  padding: 15px;
+  margin: 0;
+  font-size: 25px;
+    ul {list-style: none; padding: 0;}
+}

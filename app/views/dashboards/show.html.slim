@@ -34,12 +34,7 @@ h1
       h3.header Jobs
       - @character.list_jobs.each do |job_level|
         .name.text-right.col-md-4
-          - if job_level[0] == @character.active_character_job.job.name
-            span#active-job
-              = "#{job_level[0]}"
-            | : 
-          - else
-            = "#{job_level[0]}:"
+          = "#{job_level[0]}:"
         .level.col-md-1
           = "#{job_level[1]}"
   .row
