@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624195312) do
+ActiveRecord::Schema.define(version: 20160707192427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +42,15 @@ ActiveRecord::Schema.define(version: 20160624195312) do
     t.integer  "gc",         default: 500
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "party_id"
+    t.index ["name"], name: "index_characters_on_name", using: :btree
   end
 
-  add_index "characters", ["name"], name: "index_characters_on_name", using: :btree
+  create_table "characters_parties", id: false, force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "party_id"
+    t.index ["character_id"], name: "index_characters_parties_on_character_id", using: :btree
+    t.index ["party_id"], name: "index_characters_parties_on_party_id", using: :btree
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -56,10 +60,9 @@ ActiveRecord::Schema.define(version: 20160624195312) do
     t.integer  "power"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["name"], name: "index_items_on_name", using: :btree
+    t.index ["subtype"], name: "index_items_on_subtype", using: :btree
   end
-
-  add_index "items", ["name"], name: "index_items_on_name", using: :btree
-  add_index "items", ["subtype"], name: "index_items_on_subtype", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name"
@@ -69,10 +72,9 @@ ActiveRecord::Schema.define(version: 20160624195312) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "slug"
+    t.index ["alias"], name: "index_jobs_on_alias", using: :btree
+    t.index ["slug"], name: "index_jobs_on_slug", using: :btree
   end
-
-  add_index "jobs", ["alias"], name: "index_jobs_on_alias", using: :btree
-  add_index "jobs", ["slug"], name: "index_jobs_on_slug", using: :btree
 
   create_table "parties", force: :cascade do |t|
     t.boolean  "active"
@@ -88,9 +90,8 @@ ActiveRecord::Schema.define(version: 20160624195312) do
     t.string   "command"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_skills_on_name", using: :btree
   end
-
-  add_index "skills", ["name"], name: "index_skills_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -105,9 +106,8 @@ ActiveRecord::Schema.define(version: 20160624195312) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

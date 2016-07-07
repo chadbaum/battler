@@ -5,6 +5,7 @@ Battler::Application.routes.draw do
 
   resources :jobs, only: [:index, :show]
   resources :characters, only: [:index, :show, :create, :new]
+  resources :parties, only: [:index, :new, :create]
 
   resource :dashboard, only: [:show]
 
