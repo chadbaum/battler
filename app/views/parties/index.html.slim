@@ -4,10 +4,12 @@ h1 Parties
     - if ! current_user.character.party
       = simple_form_for @party do |f|
         = f.button :submit
+    - else
+      = link_to 'Leave Party', character_leave_party_path(current_user.character.id), id: 'leave-party', method: :patch, data: {character: current_user.character.id}
     - @parties.each do |party|
       .row
         #party-row-header.col-xs-1
-          = "Party #{party.id}:  "    
+          = party.id   
         #party-row.col-xs-11
           - party.characters.each do |member|
             .party-character-card

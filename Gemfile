@@ -10,7 +10,7 @@ gem 'pg'
 gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
@@ -25,7 +25,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

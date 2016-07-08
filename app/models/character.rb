@@ -11,8 +11,6 @@ class Character < ActiveRecord::Base
   validates :name, presence: true, length: { in: 4..8 }, uniqueness: true
   validates :gender, presence: true
 
-  before_save :capitalize_name!
-
   def active_character_job
     character_jobs.find_by active: true
   end
@@ -99,12 +97,6 @@ class Character < ActiveRecord::Base
       accessories << accessory
     end
     accessories
-  end
-
-  private
-
-  def capitalize_name!
-    self.name.capitalize!
   end
 
 end

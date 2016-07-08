@@ -4,7 +4,9 @@ Battler::Application.routes.draw do
   root 'home#index'
 
   resources :jobs, only: [:index, :show]
-  resources :characters, only: [:index, :show, :create, :new]
+  resources :characters, only: [:index, :show, :create, :new] do
+    patch '/party/leave', to: 'parties#leave', as: :leave_party
+  end
   resources :parties, only: [:index, :create]
 
   resource :dashboard, only: [:show]
