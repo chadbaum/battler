@@ -1,7 +1,7 @@
 h1 Parties
 .container
   #parties.col-xs-12.text-center
-    - if ! current_user.character.party.last 
+    - if ! current_user.character.party
       = simple_form_for @party do |f|
         = f.button :submit
     - @parties.each do |party|

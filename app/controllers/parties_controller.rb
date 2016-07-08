@@ -7,11 +7,13 @@ class PartiesController < ApplicationController
   end
 
   def create
-    @party = current_user.character.party.create
+    @party = current_user.character.create_party(leader: current_user.character.name)
+    current_user.save!
   end
 
   def join
-    @party = current_user.character.party
+    current_user.character.party_id = params[:party_id]
+    redirect_to parties_path
   end
 
 

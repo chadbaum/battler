@@ -1,6 +1,6 @@
 class Character < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :party
+  belongs_to :party
 
   has_many :character_items
   has_many :items, through: :character_items
