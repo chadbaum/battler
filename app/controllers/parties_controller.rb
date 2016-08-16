@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PartiesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_authorized_for_character, only: [:leave]
@@ -40,5 +41,4 @@ class PartiesController < ApplicationController
   def current_character
     @character = Character.find(params[:character_id])
   end
-
 end

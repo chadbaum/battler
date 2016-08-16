@@ -1,5 +1,5 @@
+# frozen_string_literal: true
 module CharactersHelper
-
   def job_names
     job_names = []
     Job.all.each do |job|
@@ -7,5 +7,4 @@ module CharactersHelper
     end
     job_names
   end
-
 end

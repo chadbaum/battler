@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Character < ActiveRecord::Base
   belongs_to :user
   belongs_to :party
@@ -19,7 +20,7 @@ class Character < ActiveRecord::Base
     "/assets/portraits/#{active_character_job.job.alias.upcase}.gif"
   end
 
-  def active_job_level_up! #increment the job level by 1 and return the new level
+  def active_job_level_up! # increment the job level by 1 and return the new level
     current_active_job = active_character_job
     next_level = active_job_level + 1
 
@@ -29,14 +30,14 @@ class Character < ActiveRecord::Base
   end
 
   def change_active_job(job_alias)
-      old_active_job = active_character_job
-      old_active_job.active = false
-      old_active_job.save
+    old_active_job = active_character_job
+    old_active_job.active = false
+    old_active_job.save
 
-      job_id = jobs.find_by alias: job_alias
-      new_active_job = character_jobs.find_by job_id: job_id
-      new_active_job.active = true
-      new_active_job.save
+    job_id = jobs.find_by alias: job_alias
+    new_active_job = character_jobs.find_by job_id: job_id
+    new_active_job.active = true
+    new_active_job.save
   end
 
   def list_jobs
@@ -57,9 +58,9 @@ class Character < ActiveRecord::Base
 
   def list_inventory_types
     item_types = []
-      items.each do |item|
-        item_types << item.type
-      end
+    items.each do |item|
+      item_types << item.type
+    end
     item_types.uniq
     end
 
@@ -98,5 +99,4 @@ class Character < ActiveRecord::Base
     end
     accessories
   end
-
 end

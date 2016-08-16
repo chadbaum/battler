@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,9 +33,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-#MY STUFF
-gem 'puma' #server
-gem 'rails_12factor', group: :production #works wit heroku
+# MY STUFF
+gem 'puma' # server
+gem 'rails_12factor', group: :production # works wit heroku
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
