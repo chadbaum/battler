@@ -41,6 +41,10 @@ gem 'simple_form'
 gem 'friendly_id'
 gem 'slim-rails'
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 gem 'pry-rails', group: :development #debugger
 
 # Use ActiveModel has_secure_password
