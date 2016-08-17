@@ -96,8 +96,6 @@ class Character < ActiveRecord::Base
   private
 
   def eq_lookup(slot)
-    result = inventory_items.find_by(equipped: true, slot: slot)
-    return result if result
-    "Empty"
+    inventory_items.find_by(equipped: true, slot: slot)
   end
 end
