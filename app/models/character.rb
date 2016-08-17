@@ -5,7 +5,7 @@ class Character < ActiveRecord::Base
   belongs_to :party
 
   has_many :character_items
-  has_many :items, through: :character_items
+  has_many :items, through: :character_items, class_name: "Inventory"
 
   has_many :character_jobs
   has_many :jobs, through: :character_jobs
@@ -68,7 +68,7 @@ class Character < ActiveRecord::Base
 
   def list_consumables
     consumables = []
-    character_items.each do |consumable|
+    character_items.includes(:item).each do |item|
       if consumable.item.type == 'Consumable'
         consumables << [consumable.item.name, consumable.quantity]
       end
