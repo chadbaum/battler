@@ -103,4 +103,10 @@ class Character < ActiveRecord::Base
     end
     accessories
   end
+
+  private
+
+  def eq_lookup(slot)
+    character_items.find_by(equipped: true, slot: slot)
+  end
 end
