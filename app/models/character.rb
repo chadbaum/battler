@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Character
 class Character < ActiveRecord::Base
   belongs_to :user
   belongs_to :party
@@ -20,7 +21,8 @@ class Character < ActiveRecord::Base
     "/assets/portraits/#{active_character_job.job.alias.upcase}.gif"
   end
 
-  def active_job_level_up! # increment the job level by 1 and return the new level
+  # Increment the job level by 1 and return the new level.
+  def active_job_level_up!
     current_active_job = active_character_job
     next_level = active_job_level + 1
 
@@ -62,12 +64,14 @@ class Character < ActiveRecord::Base
       item_types << item.type
     end
     item_types.uniq
-    end
+  end
 
   def list_consumables
     consumables = []
     character_items.each do |consumable|
-      consumables << [consumable.item.name, consumable.quantity] if consumable.item.type == 'Consumable'
+      if consumable.item.type == 'Consumable'
+        consumables << [consumable.item.name, consumable.quantity]
+      end
     end
     consumables
   end

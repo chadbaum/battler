@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Jobs
 class JobsController < ApplicationController
   def index
     @jobs = Job.order(:id)

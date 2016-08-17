@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Job
 class Job < ActiveRecord::Base
   has_many :skills
 

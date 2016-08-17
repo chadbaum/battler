@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Characters
 class CharactersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
