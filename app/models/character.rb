@@ -57,7 +57,7 @@ class Character < ActiveRecord::Base
 
   def list_consumables
     consumables = []
-    character_items.includes(:item).each do |item|
+    character_items.includes(:item).each do |_item|
       if consumable.item.type == 'Consumable'
         consumables << [consumable.item.name, consumable.quantity]
       end
