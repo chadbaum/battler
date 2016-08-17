@@ -4,21 +4,21 @@ class Character < ActiveRecord::Base
   belongs_to :user
   belongs_to :party
 
-  has_many :character_items
-  has_many :items, through: :character_items, class_name: "Inventory"
+  has_many :inventory_items
+  has_many :items, through: :inventory_items
 
-  has_many :character_jobs
-  has_many :jobs, through: :character_jobs
+  has_many :enrolled_jobs
+  has_many :jobs, through: :enrolled_jobs
 
   validates :name, presence: true, length: { in: 4..8 }, uniqueness: true
   validates :gender, presence: true
 
-  def active_character_job
-    character_jobs.find_by active: true
+  def active_job_portrait
+    "/assets/portraits/#{active_job.job.alias.upcase}.gif"
   end
 
-  def active_job_portrait
-    "/assets/portraits/#{active_character_job.job.alias.upcase}.gif"
+  def active_job
+    enrolled_jobs.find_by active: true
   end
 
   # Increment the job level by 1 and return the new level.

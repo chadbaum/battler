@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707224001) do
+ActiveRecord::Schema.define(version: 20160817190503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "character_items", force: :cascade do |t|
-    t.integer  "character_id"
-    t.integer  "item_id"
-    t.integer  "quantity"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "equipped",     default: false
-    t.string   "slot"
-  end
 
   create_table "character_jobs", force: :cascade do |t|
     t.integer  "character_id"
@@ -44,6 +34,36 @@ ActiveRecord::Schema.define(version: 20160707224001) do
     t.datetime "updated_at",               null: false
     t.integer  "party_id"
     t.index ["name"], name: "index_characters_on_name", using: :btree
+  end
+
+  create_table "enrolled_jobs", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "job_id"
+    t.boolean  "active",       default: false
+    t.integer  "level",        default: 1
+    t.integer  "xp",           default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "inventory", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.boolean  "equipped",     default: false
+    t.string   "slot"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "inventory_items", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "item_id"
+    t.integer  "quantity"
+    t.boolean  "equipped",     default: false
+    t.string   "slot"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "items", force: :cascade do |t|
