@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20160817190503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "character_jobs", force: :cascade do |t|
-    t.integer  "character_id"
-    t.integer  "job_id"
-    t.boolean  "active",       default: false
-    t.integer  "level",        default: 1
-    t.integer  "xp",           default: 0
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
   create_table "characters", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -42,16 +32,6 @@ ActiveRecord::Schema.define(version: 20160817190503) do
     t.boolean  "active",       default: false
     t.integer  "level",        default: 1
     t.integer  "xp",           default: 0
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  create_table "inventory", force: :cascade do |t|
-    t.integer  "character_id"
-    t.integer  "item_id"
-    t.integer  "quantity"
-    t.boolean  "equipped",     default: false
-    t.string   "slot"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
