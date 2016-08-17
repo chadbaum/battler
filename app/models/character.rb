@@ -77,23 +77,23 @@ class Character < ActiveRecord::Base
   end
 
   def chest
-    character_items.find_by(equipped: true, slot: 'chest')
+    eq_lookup(chest)
   end
 
   def head
-    character_items.find_by(equipped: true, slot: 'head')
+    eq_lookup(head)
   end
 
   def feet
-    character_items.find_by(equipped: true, slot: 'feet')
+    eq_lookup(feet)
   end
 
   def right
-    character_items.find_by(equipped: true, slot: 'right')
+    eq_lookup(right)
   end
 
   def left
-    character_items.find_by(equipped: true, slot: 'left')
+    eq_lookup(left)
   end
 
   def accessories
