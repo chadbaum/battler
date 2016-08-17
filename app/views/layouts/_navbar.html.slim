@@ -31,11 +31,11 @@ nav.navbar.navbar-default.navbar-inverse
             span.glyphicon.glyphicon-comment
             |  Forum 
       ul.nav.navbar-nav.navbar-right
-        - if user_signed_in? && current_user.character
+        - if user_signed_in? && current_character
           li
             = link_to image_tag(active_job_portrait(current_character), class: 'character-icon'), dashboard_path
           li#nav-character-panel
-            = "#{current_user.character.name}"
+            = "#{current_character.name}"
         li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
             |  Account 
@@ -43,9 +43,10 @@ nav.navbar.navbar-default.navbar-inverse
           ul.dropdown-menu
             - if user_signed_in?
               - if !current_character
+              li
                 = link_to new_character_path do
                   span.glyphicon.glyphicon-plus
-                  |   Create Character
+                  |   New Character
                 end
               li
                 = link_to '#' do

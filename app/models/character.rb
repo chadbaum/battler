@@ -11,7 +11,9 @@ class Character < ActiveRecord::Base
   has_many :jobs, through: :enrolled_jobs
 
   validates :name, presence: true, length: { in: 4..8 }, uniqueness: true
-  validates :gender, presence: true
+  validates :gender, presence: true, inclusion: { in: %w(Male Female) }
+
+  after_save :add_starter
 
   def active_job
     enrolled_jobs.find_by(active: true)
@@ -93,9 +95,25 @@ class Character < ActiveRecord::Base
     eq_lookup('left')
   end
 
+  def add_starter
+    add_starter_jobs
+    add_starter_items
+    add_starter_skills
+  end
+
   private
 
   def eq_lookup(slot)
     inventory_items.find_by(equipped: true, slot: slot)
+  end
+
+  def add_starter_jobs
+    enrolled_jobs.create(job_id: 1, active: true)
+  end
+
+  def add_starter_items
+  end
+
+  def add_starter_skills
   end
 end
