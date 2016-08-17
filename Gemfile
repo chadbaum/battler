@@ -48,6 +48,7 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'rubocop', require: false
 end
 
 # Use ActiveModel has_secure_password
