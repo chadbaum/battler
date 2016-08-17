@@ -16,9 +16,8 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = current_user.build_character(character_params)
-    @character.save!
-    @character.character_jobs.create(job_id: 1, active: true)
+    @character = current_user.create_character(character_params)
+    @character.create_enrolled_job(job_id: 1, active: true)
     if @character.valid?
       redirect_to root_path
     else

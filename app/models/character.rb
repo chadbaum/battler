@@ -33,16 +33,16 @@ class Character < ActiveRecord::Base
 
   def list_jobs
     jobs = []
-    character_jobs.each do |character_job|
-      jobs << [character_job.job.name, character_job.level]
+    enrolled_jobs.each do |enrolled_job|
+      jobs << [enrolled_job.job.name, enrolled_job.level]
     end
     jobs
   end
 
   def list_inventory
     inventory = []
-    character_items.each do |character_item|
-      inventory << [character_item.item.name, character_item.quantity]
+    inventory_items.each do |inventory_item|
+      inventory << [inventory_item.item.name, inventory_item.quantity]
     end
     inventory
   end

@@ -8,8 +8,4 @@ class Job < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-
-  def icon
-    "/assets/icons/#{active_job_alias.upcase}.png"
-  end
 end
