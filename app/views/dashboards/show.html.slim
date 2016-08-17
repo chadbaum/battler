@@ -4,10 +4,10 @@ h1
   .row
     .dashboard-panel.active-job.col-xs-12.col-md-6.col-md-offset-1
       h3.header
-        = @character.active_character_job.job.name
+        = @character.active_job.job.name
       .info.col-xs-4
-        = image_tag @character.active_job_portrait, class: 'portrait'
-        = "Level #{@character.active_character_job.level}"
+        = image_tag active_job_portrait(@character), class: 'portrait'
+        = "Level #{@character.active_job.level}"
         ul.stats
           li Strength
           li Agility
@@ -23,13 +23,13 @@ h1
           li = image_tag "/assets/slots/right.png", class: 'slot'
           li = image_tag "/assets/slots/left.png", class: 'slot'
         ul.items
-          li = @character.head.item.name
-          li = @character.chest.item.name
-          li = @character.feet.item.name
-          li = @character.accessories[0].item.name
-          li = @character.accessories[1].item.name
-          li = @character.right.item.name
-          li = @character.left.item.name
+          li = equipment_name('head')
+          li = equipment_name('chest')
+          li = equipment_name('feet')
+          li = equipment_name('accessory1')
+          li = equipment_name('accessory2')
+          li = equipment_name('right')
+          li = equipment_name('left')
     .dashboard-panel.jobs.col-xs-12.col-md-4
       h3.header Jobs
       - @character.list_jobs.each do |job_level|

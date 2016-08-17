@@ -41,7 +41,7 @@ class Character < ActiveRecord::Base
 
   def list_inventory
     inventory = []
-    inventory_items.each do |inventory_item|
+    inventory_items.includes(:item).each do |inventory_item|
       inventory << [inventory_item.item.name, inventory_item.quantity]
     end
     inventory
@@ -57,45 +57,45 @@ class Character < ActiveRecord::Base
 
   def list_consumables
     consumables = []
-    character_items.includes(:item).each do |_item|
-      if consumable.item.type == 'Consumable'
-        consumables << [consumable.item.name, consumable.quantity]
+    inventory_items.includes(:item).each do |inventory_item|
+      if inventory_item.item.type == 'Consumable'
+        consumables << [inventory_item.item.name, inventory_item.quantity]
       end
     end
     consumables
   end
 
   def chest
-    eq_lookup(chest)
+    eq_lookup('chest')
   end
 
   def head
-    eq_lookup(head)
+    eq_lookup('head')
   end
 
   def feet
-    eq_lookup(feet)
+    eq_lookup('feet')
+  end
+
+  def accessory1
+    eq_lookup('accessory1')
+  end
+
+  def accessory2
+    eq_lookup('accessory2')
   end
 
   def right
-    eq_lookup(right)
+    eq_lookup('right')
   end
 
   def left
-    eq_lookup(left)
-  end
-
-  def accessories
-    accessories = []
-    character_items.where(equipped: true, slot: 'accessory').each do |accessory|
-      accessories << accessory
-    end
-    accessories
+    eq_lookup('left')
   end
 
   private
 
   def eq_lookup(slot)
-    character_items.find_by(equipped: true, slot: slot)
+    inventory_items.find_by(equipped: true, slot: slot)
   end
 end
