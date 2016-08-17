@@ -1,0 +1,8 @@
+h1 Jobs
+br/
+ol.breadcrumb
+  li= link_to 'Jobs', jobs_path
+  li.active= @job.name
+p
+  = image_tag "/assets/icons/#{@job.alias}.png", class: 'job-icon'
+  = @job.description

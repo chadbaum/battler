@@ -1,0 +1,21 @@
+h1
+  = @character.name
+br
+.container
+  .row
+    .inventory.col-xs-3.panel.col-xs-offset-1
+      table
+        - @character.list_inventory.each do |item_quantity|
+          tr
+            td[width="100"]
+              = "#{item_quantity[0]}:"
+            td
+              = "#{item_quantity[1]}"
+    .jobs.col-xs-3.panel.col-xs-offset-1
+      table
+        - @character.list_jobs.each do |job_level|
+          tr
+            td[width="100"]
+              = "#{job_level[0]}:"
+            td
+              = "#{job_level[1]}"
