@@ -1,0 +1,11 @@
+h1
+  | Jobs
+  br
+  ol.breadcrumb
+    li.active
+      | Jobs
+  - @jobs.each do |job|
+    = image_tag "/assets/icons/#{job.alias}.png", class: 'job-icon'
+    = link_to job.name, job_path(job)
+    br
+    br

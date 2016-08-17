@@ -1,0 +1,15 @@
+h1
+  | Characters
+br
+- @characters.each do |character|
+  .character-card
+    = image_tag character.active_job_portrait
+    .pull-right
+      h2
+        = link_to character.name, character_path(character)
+      #character-job
+        = "Level #{character.active_character_job.level} #{character.active_character_job.job.name}"
+      #character-jobs
+        - character.list_jobs.each do |job_pair|
+          = "#{job_pair[0]}:  #{job_pair[1]}"
+          br
