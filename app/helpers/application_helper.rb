@@ -2,7 +2,7 @@
 # Application
 module ApplicationHelper
   def active_job_portrait(character)
-      "/assets/portraits/#{character.active_job.job.alias.upcase}.gif"
+    "/assets/portraits/#{character.active_job.job.alias.upcase}.gif"
   end
 
   def job_icon(character)
