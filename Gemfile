@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0'
+gem 'rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -33,14 +33,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# MY STUFF
-gem 'puma' # server
-gem 'rails_12factor', group: :production # works wit heroku
+gem 'puma'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'friendly_id'
 gem 'slim-rails'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'rspec-rails'
