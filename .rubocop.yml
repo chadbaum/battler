@@ -1,0 +1,12 @@
+AllCops:
+  Exclude:
+    - '**/Rakefile'
+    - '**/config.ru'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'lib/OLD STUFF/**/*'
+    - 'bin/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'

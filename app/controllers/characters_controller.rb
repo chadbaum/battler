@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+# Characters
 class CharactersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-
 
   def index
     @characters = Character.all
@@ -30,5 +31,4 @@ class CharactersController < ApplicationController
   def character_params
     params.require(:character).permit(:name, :gender)
   end
-
 end

@@ -23,13 +23,13 @@ h1
           li = image_tag "/assets/slots/right.png", class: 'slot'
           li = image_tag "/assets/slots/left.png", class: 'slot'
         ul.items
-          li = equipped("head")
-          li = equipped("chest")
-          li = equipped("feet")
-          li = equipped("accessory1")
-          li = equipped("accessory2")
-          li = equipped("right")
-          li = equipped("left")
+          li = @character.head.item.name
+          li = @character.chest.item.name
+          li = @character.feet.item.name
+          li = @character.accessories[0].item.name
+          li = @character.accessories[1].item.name
+          li = @character.right.item.name
+          li = @character.left.item.name
     .dashboard-panel.jobs.col-xs-12.col-md-4
       h3.header Jobs
       - @character.list_jobs.each do |job_level|

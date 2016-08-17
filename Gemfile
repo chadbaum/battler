@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,16 +33,24 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-#MY STUFF
-gem 'puma' #server
-gem 'rails_12factor', group: :production #works wit heroku
+# MY STUFF
+gem 'puma' # server
+gem 'rails_12factor', group: :production # works wit heroku
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'friendly_id'
 gem 'slim-rails'
 
-gem 'pry-rails', group: :development #debugger
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'codeclimate-test-reporter', require: nil
+end
+
+group :development do
+  gem 'pry-rails'
+  gem 'rubocop', require: false
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
