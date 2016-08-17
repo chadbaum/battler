@@ -33,7 +33,7 @@ nav.navbar.navbar-default.navbar-inverse
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in? && current_user.character
           li
-            = link_to image_tag(current_user.character.active_job_portrait, class: 'character-icon'), dashboard_path
+            = link_to image_tag(active_job_portrait(current_character), class: 'character-icon'), dashboard_path
           li#nav-character-panel
             = "#{current_user.character.name}"
         li.dropdown
