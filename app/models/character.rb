@@ -14,7 +14,7 @@ class Character < ActiveRecord::Base
   validates :gender, presence: true
 
   def active_job
-    enrolled_jobs.find_by active: true
+    enrolled_jobs.find_by(active: true)
   end
 
   # Increment the job level by 1 and return the new level.
@@ -24,14 +24,11 @@ class Character < ActiveRecord::Base
   end
 
   def change_active_job(job_alias)
-    old_active_job = active_character_job
-    old_active_job.active = false
-    old_active_job.save
+    new_job_id = jobs.find_by(alias: job_alias)
+    new_active_job = enrolled_jobs.find_by(job_id: new_job_id)
 
-    job_id = jobs.find_by alias: job_alias
-    new_active_job = character_jobs.find_by job_id: job_id
-    new_active_job.active = true
-    new_active_job.save
+    active_job.update(active: false)
+    new_active_job.update(active: true)
   end
 
   def list_jobs
