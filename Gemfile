@@ -44,6 +44,7 @@ gem 'slim-rails'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :development do
