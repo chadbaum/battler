@@ -13,22 +13,14 @@ class Character < ActiveRecord::Base
   validates :name, presence: true, length: { in: 4..8 }, uniqueness: true
   validates :gender, presence: true
 
-  def active_job_portrait
-    "/assets/portraits/#{active_job.job.alias.upcase}.gif"
-  end
-
   def active_job
     enrolled_jobs.find_by active: true
   end
 
   # Increment the job level by 1 and return the new level.
   def active_job_level_up!
-    current_active_job = active_character_job
-    next_level = active_job_level + 1
-
-    current_active_job.level = next_level
-    current_active_job.save
-    next_level
+    active_job.update(level: active_job.level += 1)
+    active_job.level
   end
 
   def change_active_job(job_alias)
